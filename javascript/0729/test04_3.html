@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test04_3.html</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'
+
+    function mapCheck() {
+      let jsonToObject = [
+        {name: "홍길동", age: 25},
+        {name: "김말숙", age: 34},
+        {name: "이기자", age: 28},
+        {name: "소나무", age: 19},
+        {name: "김연아", age: 33},
+        {name: "오하늘", age: 40}
+      ];
+
+      // map함수는 처리되는 결과를 무조건 return처리한다. 따라서 조건에 만족하지 않는값도 undefined로 넘겨준다.
+      let newObject = jsonToObject.map((data, i) => {
+        //console.log(data);
+        let resObject = {};
+        if(i % 2 == 0) { 
+          resObject[data.name] = data.age;
+          return resObject;
+        }
+      });
+      console.log(newObject);
+      console.log('');
+      // 앞의 문제를 해결하기 위해서 fillter를 사용한다.
+      newObject = jsonToObject.filter((data, i) => i % 2 == 0);
+      console.log("newObject : ", newObject);
+      console.log('');
+      // 앞의 결과를 바로 출력하고자 한다면?
+      jsonToObject.filter((data, i) => i % 2 == 0)
+        .map((data) => console.log(data));
+    }
+    </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h3>map 연습</h3>
+  <input type="button" value="map호출" onclick="mapCheck()" class="btn btn-success" />
+</div>
+</body>
+</html>
