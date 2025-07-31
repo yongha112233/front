@@ -5,11 +5,11 @@
 // 오늘날짜 : Date()
 const today = new Date();
 const year = today.getFullYear(); //연도 4자리
-const month = today.getMonth() + 1; //월 1자리(0월~11월)
+const month = today.getMonth(); + 1; //월 1자리(0월~11월)
 const date = today.getDate(); //일 1자리
-const hour = today.getHours(); //일 1자리
-const minute = today.getMinutes(); //일 1자리
-const second = today.getSeconds(); //일 1자리
+const hour = today.getHours(); //시 
+const minute = today.getMinutes(); //분 
+const second = today.getSeconds(); //초 
 
 let str = '';
 

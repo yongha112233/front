@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test5_object3.html</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="test3.js"></script>
+  <script>
+    'use strict'
+
+    const obj1 = new Object();
+    const obj2 = {name:'홍길송', age: 25, job:'학생'};
+    console.log('1.obj2 : ', obj2);
+    console.log('');
+    
+    obj2.gender = true;
+    console.log('2.obj2 : ', obj2);
+    console.log('');
+    
+    obj2.age = 33;
+    console.log('3.obj2 : ', obj2);
+    console.log('');
+
+    // 값의 처리
+    console.log("4.", obj2.name);
+    let name = 'name';
+    console.log("5.", obj2[name]);
+    console.log("6.", obj2['name']);
+    console.log('');
+
+    const obj3 = makeObject('김말숙', 33, '회사원');
+    console.log("7.obj3 : ", obj3);
+    console.log('===========================');
+
+    function makeObject(name, age, job) {
+      age++;
+      return {
+        name, age, job
+      }
+    }
+
+    //키 검색(in) : Object값의 출력은 Key를 통해서 출력한다.
+    for(let key in obj3) {
+      console.log(key, obj3[key]);
+    }
+    console.log('');
+
+    //배열값 검색(of)
+    const arr = [1,'one','하나', true];
+    for(let value of arr) {
+      console.log(value);
+    }
+
+    //객체 복사(얕은복사)
+    const obj4 = obj3;
+    console.log('11.obj2 : ', obj2);
+    console.log('12.obj3 : ', obj3);
+    console.log('13.obj4 : ', obj4);
+    console.log('');
+    
+    obj4.name = obj2.name
+    obj4.age = obj2.age
+    obj4.job = obj2.job 
+    console.log('14.obj4 : ', obj4);
+    console.log('');
+    
+    //깊은복사
+    const obj5 = new Object();
+    for(let key in obj2){
+      obj5[key] = obj2[key]
+    }
+    console.log('15.obj5 : ', obj5);
+    console.log('');
+    
+    obj5[name] = '대나무';
+    console.log('16.obj2 : ', obj2);
+    console.log('17.obj5 : ', obj5);
+    console.log('');
+
+    </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h3>Object(객체) 연습</h3>
+
+</div>
+</body>
+</html>
